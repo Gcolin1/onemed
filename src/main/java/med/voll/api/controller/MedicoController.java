@@ -24,6 +24,7 @@ public class MedicoController {
     private MedicoRepository repository;
 
     //Metodo post pra enviar dados pra api
+    @CrossOrigin(origins = "http://localhost:8100")
     @PostMapping
     @Transactional
                         //requestBody vai pegar o json enviado
