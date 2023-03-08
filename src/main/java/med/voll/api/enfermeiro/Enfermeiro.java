@@ -1,15 +1,18 @@
 package med.voll.api.enfermeiro;
 
-import jakarta.persistence.Embedded;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import med.voll.api.endereco.Endereco;
 
+@Table(name = "enfermeiros")
+@Entity(name = "Enfermeiros")
 @Getter
-
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 public class Enfermeiro {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
