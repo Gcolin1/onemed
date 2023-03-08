@@ -19,6 +19,8 @@ public record DadosCadastroEnfermeiro(
         @NotBlank
         @Pattern(regexp = "\\d{4,6}")
         String cre,
+        @NotBlank
+        String cpf,
         @NotNull
         @Valid DadosEndereco endereco) {
 }

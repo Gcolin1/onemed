@@ -20,6 +20,7 @@ public class Enfermeiro {
     private String nome;
     private String email;
     private String cre;
+    private String cpf;
     private String telefone;
     @Embedded
     private Endereco endereco;
@@ -28,6 +29,7 @@ public class Enfermeiro {
         this.nome = dados.nome();
         this.email = dados.email();
         this.cre = dados.cre();
+        this.cpf = dados.cpf();
         this.telefone = dados.telefone();
         this.endereco = new Endereco(dados.endereco());
     }
