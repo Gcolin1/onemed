@@ -80,5 +80,12 @@ public class MedicoController {
         return ResponseEntity.ok(medicoAtualizadoSalvo);
     }
 
+    @GetMapping(value = "/buscar", produces = "application/json")
+    public ResponseEntity<List<Medico>> getMedicoById(@RequestParam(name = "nome") String nome){
+        List<Medico> medicos = repository.getMedicoByName(nome);
+
+        return new ResponseEntity<List<Medico>>(medicos, HttpStatus.OK);
+    }
+
 
 }
