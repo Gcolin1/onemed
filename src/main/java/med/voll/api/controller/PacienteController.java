@@ -17,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -69,5 +70,13 @@ public class PacienteController {
             Paciente pacienteAtualizadoSalvo = repository.save(pacienteExistente);
 
             return ResponseEntity.ok(pacienteAtualizadoSalvo);
+        }
+
+        //QUERY PARA BUSCAR PACIENTES PELO NOME
+        @GetMapping(value = "/buscarPaciente", produces = "application/json")
+        public ResponseEntity<List<Paciente>> getPacienteById(@RequestParam(name = "nome") String nome){
+            List<Paciente> pacientes = repository.getPacienteByName(nome);
+
+            return new ResponseEntity<List<Paciente>>(pacientes, HttpStatus.OK);
         }
     }
