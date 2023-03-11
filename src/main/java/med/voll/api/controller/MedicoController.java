@@ -41,6 +41,7 @@ public class MedicoController {
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
+    @CrossOrigin(origins = "http://localhost:8100")
     @GetMapping
     public Page<DadosListagemMedico> listarMedicos(Pageable paginacao){
         //find all metodo do JPA repository

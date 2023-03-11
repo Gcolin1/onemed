@@ -30,6 +30,7 @@ public class PacienteController {
     private PacienteRepository repository;
 
     @GetMapping
+    @CrossOrigin(origins = "http://localhost:8100")
     public Page<DadosListagemPaciente> listarPacientes(Pageable paginacao){
         //find all metodo do JPA repository
         return repository.findAll(paginacao).map(DadosListagemPaciente::new);
@@ -37,6 +38,7 @@ public class PacienteController {
 
     @PostMapping
     @Transactional
+    @CrossOrigin(origins = "http://localhost:8100")
     public void cadastrar(@RequestBody @Valid DadosCadastroPacientes dados){
         repository.save(new Paciente(dados));
     }
