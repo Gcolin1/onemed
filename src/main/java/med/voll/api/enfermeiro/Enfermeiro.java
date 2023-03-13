@@ -24,7 +24,8 @@ public class Enfermeiro {
     @Embedded
     private Endereco endereco;
 
-    public Enfermeiro(DadosCadastroEnfermeiros dados){
+    public Enfermeiro(DadosCadastroEnfermeiro dados) {
+
         this.nome = dados.nome();
         this.email = dados.email();
         this.cre = dados.cre();

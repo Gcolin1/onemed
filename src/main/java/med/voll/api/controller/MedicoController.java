@@ -47,6 +47,7 @@ public class MedicoController {
         //find all metodo do JPA repository
         return repository.findAll(paginacao).map(DadosListagemMedico::new);
     }
+
     @Autowired
     private MedicoService medicoService;
 
@@ -80,7 +81,8 @@ public class MedicoController {
 
         return ResponseEntity.ok(medicoAtualizadoSalvo);
     }
-
+    
+    @CrossOrigin(origins = "http://localhost:8100")
     @GetMapping(value = "/buscar", produces = "application/json")
     public ResponseEntity<List<Medico>> getMedicoById(@RequestParam(name = "nome") String nome){
         List<Medico> medicos = repository.getMedicoByName(nome);

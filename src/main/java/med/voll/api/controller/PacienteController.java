@@ -1,12 +1,9 @@
 package med.voll.api.controller;
-
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import med.voll.api.Service.PacienteService;
-import med.voll.api.medico.DadosListagemMedico;
-import med.voll.api.medico.Medico;
 import med.voll.api.pacientes.DadosCadastroPacientes;
-import med.voll.api.pacientes.DadosListagemPaciente;
+import med.voll.api.pacientes.*;
 import med.voll.api.pacientes.Paciente;
 import med.voll.api.pacientes.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +12,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,12 +25,14 @@ public class PacienteController {
     @Autowired
     private PacienteRepository repository;
 
-    @GetMapping
+
     @CrossOrigin(origins = "http://localhost:8100")
+    @GetMapping
     public Page<DadosListagemPaciente> listarPacientes(Pageable paginacao){
         //find all metodo do JPA repository
         return repository.findAll(paginacao).map(DadosListagemPaciente::new);
     }
+
 
     @PostMapping
     @Transactional
