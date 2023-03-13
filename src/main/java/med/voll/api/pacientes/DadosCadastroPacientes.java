@@ -14,7 +14,7 @@ public record DadosCadastroPacientes(
         @Email(message = "email incorreto")
         String email,
         @NotBlank(message = "cpf não pode ser nulo")
-        @Pattern(regexp = "\\d{6}")
+        @Pattern(regexp = "\\d{11}")
         String cpf,
         DadosEndereco endereco) {
 }

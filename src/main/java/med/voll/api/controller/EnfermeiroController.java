@@ -25,6 +25,7 @@ public class EnfermeiroController{
 
     @PostMapping
     @Transactional
+    @CrossOrigin(origins = "http://localhost:8100")
     //requestBody vai pegar o json enviado
     public ResponseEntity<Map<String, Object>> cadastrar(@RequestBody @Valid DadosCadastroEnfermeiro dados){
         repository.save(new Enfermeiro(dados));
@@ -33,6 +34,7 @@ public class EnfermeiroController{
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
+    @CrossOrigin(origins = "http://localhost:8100")
     @GetMapping
     public Page<DadosListaEnfermeiro> buscar(Pageable pagina){
         return  repository.findAll(pagina).map(DadosListaEnfermeiro::new);
@@ -68,7 +70,9 @@ public class EnfermeiroController{
         return ResponseEntity.ok(enferAtuaSalvo);
     }
 
-    @GetMapping(value = "\buscar", produces = "application/json")
+
+    @CrossOrigin(origins = "http://localhost:8100")
+    @GetMapping(value = "/buscar", produces = "application/json")
     public ResponseEntity<List<Enfermeiro>> getEnfermeiroByid(@RequestParam(name = "nome")String nome){
         List<Enfermeiro> enfermeiros = repository.getEnfermeiroName(nome);
 
