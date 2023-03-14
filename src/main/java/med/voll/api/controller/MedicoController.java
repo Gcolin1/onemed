@@ -10,10 +10,10 @@ import med.voll.api.medico.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.ResourceAccessException;
 
 import java.util.HashMap;
 import java.util.List;
@@ -51,6 +51,14 @@ public class MedicoController {
     @Autowired
     private MedicoService medicoService;
 
+    @CrossOrigin(origins = "http://localhost:8100")
+    @GetMapping("/{id}")
+    public ResponseEntity<Medico> buscarMedicoPorId(@PathVariable Long id) {
+        Medico medico = medicoService.buscarPorId(id);
+        return ResponseEntity.ok().body(medico);
+    }
+
+
     @DeleteMapping("/{id}")//caminho para ser deletado por id
     //ResponseEntity retorna resposta se foi executado com sucesso
     public  ResponseEntity<Map<String, Object>> deletarMedico(@PathVariable Long id){
@@ -58,7 +66,7 @@ public class MedicoController {
         medicoService.deleteMedico(id);
         //retornando um json como resposta caso ao delete seja executado com sucesso
         Map<String, Object> response = new HashMap<>();
-        response.put("message", "Usuário excluído com sucesso");
+        response.put("message", "Medico excluído com sucesso");
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 

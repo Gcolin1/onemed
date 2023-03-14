@@ -10,4 +10,5 @@ public interface MedicoRepository extends JpaRepository<Medico, Long> {
 
     @Query(value = "SELECT m FROM Medico m WHERE m.nome like %?1%")
     ArrayList<Medico> getMedicoByName(String nome);
+
 }
