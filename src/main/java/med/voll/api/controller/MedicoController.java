@@ -58,7 +58,6 @@ public class MedicoController {
         return ResponseEntity.ok().body(medico);
     }
 
-
     @DeleteMapping("/{id}")//caminho para ser deletado por id
     //ResponseEntity retorna resposta se foi executado com sucesso
     public  ResponseEntity<Map<String, Object>> deletarMedico(@PathVariable Long id){
@@ -97,6 +96,4 @@ public class MedicoController {
 
         return new ResponseEntity<List<Medico>>(medicos, HttpStatus.OK);
     }
-
-
 }
