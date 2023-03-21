@@ -52,31 +52,31 @@ public class PacienteController {
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
-        @PutMapping("/{id}")
-        public ResponseEntity<Paciente> atualizarPaciente(@PathVariable Long id, @RequestBody Paciente pacienteAtualizado){
-            Optional<Paciente> pacienteExistenteOptional = repository.findById(id);
+    @PutMapping("/{id}")
+    public ResponseEntity<Paciente> atualizarPaciente(@PathVariable Long id, @RequestBody Paciente pacienteAtualizado){
+        Optional<Paciente> pacienteExistenteOptional = repository.findById(id);
 
-            if (!pacienteExistenteOptional.isPresent()) {
-                return ResponseEntity.notFound().build();
-            }
-
-            Paciente pacienteExistente = pacienteExistenteOptional.get();
-            pacienteExistente.setNome(pacienteAtualizado.getNome());
-            pacienteExistente.setEmail(pacienteAtualizado.getEmail());
-            pacienteExistente.setCpf(pacienteAtualizado.getCpf());
-            pacienteExistente.setEndereco(pacienteAtualizado.getEndereco());
-            Paciente pacienteAtualizadoSalvo = repository.save(pacienteExistente);
-
-            return ResponseEntity.ok(pacienteAtualizadoSalvo);
+        if (!pacienteExistenteOptional.isPresent()) {
+            return ResponseEntity.notFound().build();
         }
 
-        //QUERY PARA BUSCAR PACIENTES PELO NOME
-        @GetMapping(value = "/buscarPaciente", produces = "application/json")
-        public ResponseEntity<List<Paciente>> getPacienteById(@RequestParam(name = "nome") String nome){
-            List<Paciente> pacientes = repository.getPacienteByName(nome);
+        Paciente pacienteExistente = pacienteExistenteOptional.get();
+        pacienteExistente.setNome(pacienteAtualizado.getNome());
+        pacienteExistente.setEmail(pacienteAtualizado.getEmail());
+        pacienteExistente.setCpf(pacienteAtualizado.getCpf());
+        pacienteExistente.setEndereco(pacienteAtualizado.getEndereco());
+        Paciente pacienteAtualizadoSalvo = repository.save(pacienteExistente);
 
-            return new ResponseEntity<List<Paciente>>(pacientes, HttpStatus.OK);
-        }
+        return ResponseEntity.ok(pacienteAtualizadoSalvo);
+    }
+
+    //QUERY PARA BUSCAR PACIENTES PELO NOME
+    @GetMapping(value = "/buscarPaciente", produces = "application/json")
+    public ResponseEntity<List<Paciente>> getPacienteById(@RequestParam(name = "nome") String nome){
+        List<Paciente> pacientes = repository.getPacienteByName(nome);
+
+        return new ResponseEntity<List<Paciente>>(pacientes, HttpStatus.OK);
+    }
 
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)

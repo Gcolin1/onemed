@@ -56,11 +56,7 @@ public class MedicoController {
         return ResponseEntity.ok().body(medico);
     }
 
-<<<<<<< HEAD:src/main/java/onemed/api/controller/MedicoController.java
-
     @CrossOrigin(origins = "http://localhost:8100")
-=======
->>>>>>> 9bee17ab341df2138d61f412dfdf25b598a93872:src/main/java/med/voll/api/controller/MedicoController.java
     @DeleteMapping("/{id}")//caminho para ser deletado por id
     //ResponseEntity retorna resposta se foi executado com sucesso
     public  ResponseEntity<Map<String, Object>> deletarMedico(@PathVariable Long id){
@@ -100,7 +96,6 @@ public class MedicoController {
 
         return new ResponseEntity<List<Medico>>(medicos, HttpStatus.OK);
     }
-<<<<<<< HEAD:src/main/java/onemed/api/controller/MedicoController.java
 
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
@@ -119,6 +114,4 @@ public class MedicoController {
 
         return erros;
     }
-=======
->>>>>>> 9bee17ab341df2138d61f412dfdf25b598a93872:src/main/java/med/voll/api/controller/MedicoController.java
 }

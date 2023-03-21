@@ -4,6 +4,7 @@ import jakarta.transaction.Transactional;
 import onemed.api.Atendimento.Atendimento;
 import onemed.api.Atendimento.AtendimentoRepository;
 import onemed.api.Atendimento.DadosCadastroAtendimento;
+import onemed.api.pacientes.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,7 @@ public class AtendimentoController {
     @Transactional
     //requestBody vai pegar o json enviado
     public ResponseEntity<Map<String, Object>> cadastrar(@RequestBody DadosCadastroAtendimento dados){
+
         repository.save(new Atendimento(dados));
 
         Map<String, Object> response = new HashMap<>();

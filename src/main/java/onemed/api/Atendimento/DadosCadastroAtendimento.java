@@ -7,7 +7,8 @@ public record DadosCadastroAtendimento(
         String data,
         String horario,
         Especialidade especialidade,
-        String descricao,
-        Paciente paciente
+        String descricao
+
+        //Paciente paciente
 ) {
 }

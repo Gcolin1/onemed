@@ -1,7 +1,6 @@
-package med.voll.api.Service;
+package onemed.api.Service;
 
-import med.voll.api.Planos_de_saude.PlanoDeSaude;
-import med.voll.api.Planos_de_saude.PlanoRepository;
+import onemed.api.Planos_de_saude.PlanoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +14,7 @@ public class PlanoService {
         repository.deleteById(id);
     }
 
-    public PlanoDeSaude busPorId(Long id) {
-
-        return repository.findById(id).orElseThrow();
-    }
+    //public PlanoDeSaude busPorId(Long id) {
+      //  return repository.findById(id).orElseThrow();
+ //   }
 }
