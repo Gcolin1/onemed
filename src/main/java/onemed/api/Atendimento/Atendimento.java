@@ -26,6 +26,8 @@ public class Atendimento {
 
     private String descricao;
 
+    private String paciente_id;
+
     //@OneToOne(cascade = CascadeType.ALL)
     //@JoinColumn(name = "paciente_id")
     //private Paciente paciente;
@@ -35,6 +37,7 @@ public class Atendimento {
         this.descricao = dados.descricao();
         this.especialidade = dados.especialidade();
         this.horario = dados.horario();
+        this.paciente_id = dados.paciente_id();
         //this.paciente = dados.paciente();
     }
 }

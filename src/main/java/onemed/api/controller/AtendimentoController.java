@@ -24,12 +24,9 @@ public class AtendimentoController {
     @PostMapping
     @Transactional
     //requestBody vai pegar o json enviado
-    public ResponseEntity<Map<String, Object>> cadastrar(@RequestBody DadosCadastroAtendimento dados){
+    public HttpStatus cadastrar(@RequestBody DadosCadastroAtendimento dados){
 
         repository.save(new Atendimento(dados));
-
-        Map<String, Object> response = new HashMap<>();
-        response.put("message", "Medico cadastrado com sucesso");
-        return ResponseEntity.status(HttpStatus.OK).body(response);
+        return HttpStatus.OK;
     }
 }
