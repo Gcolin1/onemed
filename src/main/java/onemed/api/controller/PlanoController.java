@@ -6,8 +6,12 @@ import onemed.api.Planos_de_saude.DadosCadastroPlanos;
 import onemed.api.Planos_de_saude.DadosListagemPlanos;
 import onemed.api.Planos_de_saude.PlanoDeSaude;
 import onemed.api.Planos_de_saude.PlanoRepository;
+<<<<<<< HEAD
 import onemed.api.Service.PlanoService;
 import onemed.api.medico.Medico;
+=======
+import onemed.api.enfermeiro.Service.PlanoService;
+>>>>>>> 0fc1737835de97b5f2135cc1e41173298f229ed0
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

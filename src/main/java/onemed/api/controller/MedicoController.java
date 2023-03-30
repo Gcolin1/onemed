@@ -4,7 +4,7 @@ import jakarta.transaction.Transactional;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Valid;
-import onemed.api.Service.MedicoService;
+import onemed.api.enfermeiro.Service.MedicoService;
 import onemed.api.medico.DadosCadastroMedico;
 import onemed.api.medico.DadosListagemMedico;
 import onemed.api.medico.Medico;

@@ -8,7 +8,7 @@ import onemed.api.endereco.DadosEndereco;
 public record DadosCadastroPacientes(
         @NotBlank(message = "nome não pode ser nulo")
         String nome,
-        @NotBlank(message = "email não pode ser nulo")
+        @NotBlank
         @Email(message = "email incorreto")
         String email,
         @NotBlank()

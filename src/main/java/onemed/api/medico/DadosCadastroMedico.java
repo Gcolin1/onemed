@@ -23,6 +23,6 @@ public record DadosCadastroMedico(
         String crm,
         @NotNull(message = "especialidade incorreta")
         Especialidade especialidade,
-        @NotNull @Valid DadosEndereco endereco) {
+        DadosEndereco endereco) {
 
 }
