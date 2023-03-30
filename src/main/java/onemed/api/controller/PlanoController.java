@@ -7,6 +7,7 @@ import onemed.api.Planos_de_saude.DadosListagemPlanos;
 import onemed.api.Planos_de_saude.PlanoDeSaude;
 import onemed.api.Planos_de_saude.PlanoRepository;
 import onemed.api.Service.PlanoService;
+import onemed.api.medico.Medico;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -97,5 +98,12 @@ public class PlanoController {
         List<PlanoDeSaude> plano = repository.getPlanoByName(nome);
 
         return new ResponseEntity<List<PlanoDeSaude>>(plano, HttpStatus.OK);
+    }
+
+    @CrossOrigin(origins = "http://localhost:8100")
+    @GetMapping("/{id}")
+    public ResponseEntity<PlanoDeSaude> buscarPlanoPorId(@PathVariable Long id) {
+        PlanoDeSaude plano = planoService.busPorId(id);
+        return ResponseEntity.ok().body(plano);
     }
 }

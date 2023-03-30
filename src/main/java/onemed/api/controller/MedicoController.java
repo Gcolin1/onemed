@@ -32,11 +32,9 @@ public class MedicoController {
     @PostMapping
     @Transactional
                         //requestBody vai pegar o json enviado
-    public ResponseEntity<Map<String, Object>> cadastrar(@RequestBody @Valid DadosCadastroMedico dados){
+    public HttpStatus cadastrar(@RequestBody @Valid DadosCadastroMedico dados){
         repository.save(new Medico(dados));
-        Map<String, Object> response = new HashMap<>();
-        response.put("message", "Medico cadastrado com sucesso");
-        return ResponseEntity.status(HttpStatus.OK).body(response);
+        return HttpStatus.OK;
     }
 
     @CrossOrigin(origins = "http://localhost:8100")
@@ -59,13 +57,11 @@ public class MedicoController {
     @CrossOrigin(origins = "http://localhost:8100")
     @DeleteMapping("/{id}")//caminho para ser deletado por id
     //ResponseEntity retorna resposta se foi executado com sucesso
-    public  ResponseEntity<Map<String, Object>> deletarMedico(@PathVariable Long id){
+    public  HttpStatus deletarMedico(@PathVariable Long id){
         //chamando a função deleteMedico do medicoService passando como parametro o id do medico
         medicoService.deleteMedico(id);
         //retornando um json como resposta caso ao delete seja executado com sucesso
-        Map<String, Object> response = new HashMap<>();
-        response.put("message", "Medico excluído com sucesso");
-        return ResponseEntity.status(HttpStatus.OK).body(response);
+        return HttpStatus.OK;
     }
 
     @CrossOrigin(origins = "http://localhost:8100")
@@ -108,10 +104,8 @@ public class MedicoController {
                     violation.getPropertyPath().toString(),
                     violation.getMessage()
             );
-
             erros.add(erro);
         }
-
         return erros;
     }
 }

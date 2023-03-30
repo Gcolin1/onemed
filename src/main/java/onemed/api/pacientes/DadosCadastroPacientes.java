@@ -11,7 +11,7 @@ public record DadosCadastroPacientes(
         @NotBlank(message = "email não pode ser nulo")
         @Email(message = "email incorreto")
         String email,
-        @NotBlank(message = "cpf não pode ser nulo")
+        @NotBlank()
         @Pattern(regexp = "\\d{11}")
         String cpf,
         DadosEndereco endereco) {

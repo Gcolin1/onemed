@@ -1,9 +1,10 @@
 package onemed.api.Atendimento;
 
+
 import jakarta.persistence.*;
 import lombok.*;
 import onemed.api.medico.Especialidade;
-import onemed.api.pacientes.Paciente;
+
 
 @Table(name = "atendimento")
 @Entity(name = "Atendimento")
@@ -18,6 +19,8 @@ public class Atendimento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String paciente;
+
     String data;
 
     String horario;
@@ -26,18 +29,11 @@ public class Atendimento {
 
     private String descricao;
 
-    private String paciente_id;
-
-    //@OneToOne(cascade = CascadeType.ALL)
-    //@JoinColumn(name = "paciente_id")
-    //private Paciente paciente;
-
     public Atendimento(DadosCadastroAtendimento dados){
         this.data = dados.data();
         this.descricao = dados.descricao();
         this.especialidade = dados.especialidade();
         this.horario = dados.horario();
-        this.paciente_id = dados.paciente_id();
-        //this.paciente = dados.paciente();
+        this.paciente = dados.paciente();
     }
 }

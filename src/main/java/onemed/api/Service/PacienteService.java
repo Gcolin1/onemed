@@ -1,5 +1,6 @@
 package onemed.api.Service;
 
+import onemed.api.pacientes.Paciente;
 import onemed.api.pacientes.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,4 +15,10 @@ public class PacienteService {
     public void deletePaciente(Long id){
         repository.deleteById(id);
     }
+
+    public Paciente buscarPorId(Long id) {
+
+        return repository.findById(id).orElseThrow();
+    }
+
 }

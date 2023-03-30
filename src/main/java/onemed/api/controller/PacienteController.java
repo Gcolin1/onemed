@@ -3,8 +3,10 @@ import jakarta.transaction.Transactional;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Valid;
+import onemed.api.pacientes.DadosCadastroPacientes;
+import onemed.api.pacientes.DadosListagemPaciente;
+import onemed.api.pacientes.Paciente;
 import onemed.api.Service.PacienteService;
-import onemed.api.pacientes.*;
 import onemed.api.pacientes.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -95,4 +97,5 @@ public class PacienteController {
 
         return erros;
     }
+
     }

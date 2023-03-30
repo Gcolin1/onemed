@@ -2,7 +2,10 @@ package onemed.api.pacientes;
 
 import jakarta.persistence.*;
 import lombok.*;
+import onemed.api.Atendimento.Atendimento;
 import onemed.api.endereco.Endereco;
+
+import java.util.List;
 
 @Table(name = "pacientes")
 @Entity(name = "Paciente")
@@ -21,6 +24,9 @@ public class Paciente {
 
     @Embedded
     private Endereco endereco;
+
+    //@OneToMany(mappedBy = "paciente")
+    //private List<Atendimento> atendimentos;
 
     public Paciente(DadosCadastroPacientes dados){
         this.nome = dados.nome();
