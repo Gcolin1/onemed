@@ -3,7 +3,7 @@ import jakarta.transaction.Transactional;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Valid;
-import onemed.api.Service.PacienteService;
+import onemed.api.enfermeiro.Service.PacienteService;
 import onemed.api.pacientes.*;
 import onemed.api.pacientes.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +36,7 @@ public class PacienteController {
     @Transactional
     @CrossOrigin(origins = "http://localhost:8100")
     public void cadastrar(@RequestBody @Valid DadosCadastroPacientes dados){
+
         repository.save(new Paciente(dados));
     }
 
@@ -95,4 +96,7 @@ public class PacienteController {
 
         return erros;
     }
-    }
+
+}
+
+

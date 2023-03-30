@@ -1,4 +1,4 @@
-package onemed.api.Service;
+package onemed.api.enfermeiro.Service;
 
 import onemed.api.Planos_de_saude.PlanoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -6,7 +6,7 @@ import onemed.api.Planos_de_saude.DadosCadastroPlanos;
 import onemed.api.Planos_de_saude.DadosListagemPlanos;
 import onemed.api.Planos_de_saude.PlanoDeSaude;
 import onemed.api.Planos_de_saude.PlanoRepository;
-import onemed.api.Service.PlanoService;
+import onemed.api.enfermeiro.Service.PlanoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

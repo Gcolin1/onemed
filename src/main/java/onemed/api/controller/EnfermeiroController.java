@@ -4,11 +4,12 @@ import jakarta.transaction.Transactional;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Valid;
-import onemed.api.Service.EnfermeiroService;
+import onemed.api.enfermeiro.Service.EnfermeiroService;
 import onemed.api.enfermeiro.DadosCadastroEnfermeiro;
 import onemed.api.enfermeiro.DadosListaEnfermeiro;
 import onemed.api.enfermeiro.Enfermeiro;
 import onemed.api.enfermeiro.EnfermeiroRepository;
+import onemed.api.medico.Medico;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -43,6 +44,13 @@ public class EnfermeiroController{
     }
     @Autowired
     private EnfermeiroService enfermeiroService;
+
+    @CrossOrigin(origins = "http://localhost:8100")
+    @GetMapping("/{id}")
+    public ResponseEntity<Enfermeiro> buscarEnfermeiroId(@PathVariable Long id) {
+        Enfermeiro enfermeiro = enfermeiroService.buscarPorId(id);
+        return ResponseEntity.ok().body(enfermeiro);
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Map<String, Object>> deletarEnfermeiro(@PathVariable long id) {

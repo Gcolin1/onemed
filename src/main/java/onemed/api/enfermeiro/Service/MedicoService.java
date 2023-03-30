@@ -1,4 +1,4 @@
-package onemed.api.Service;
+package onemed.api.enfermeiro.Service;
 
 import onemed.api.medico.Medico;
 import onemed.api.medico.MedicoRepository;

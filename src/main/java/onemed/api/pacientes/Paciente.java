@@ -18,7 +18,6 @@ public class Paciente {
     private String nome;
     private String email;
     private String cpf;
-
     @Embedded
     private Endereco endereco;
 
